@@ -14,7 +14,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 llm=ChatOpenAI(model="gpt-4",temperature=0.0)
 #mongo client
-client=MongoClient("mongodb+srv://abhishekmidnight1:38aavaghela50@cluster0.m8oi39g.mongodb.net/")
+client=MongoClient("your mongo uri")
 db=client["sample_airbnb"]
 collection=db["listingsAndReviews"]
 
@@ -179,8 +179,6 @@ if input is not None:
         query=json.loads(response["text"])
         results=list(collection.aggregate(query))
         print(query)
-      #   for result in results:
-      #    st.write(result)
         summary_response = summary_chain.invoke({
             "data": json.dumps(results)
         })
