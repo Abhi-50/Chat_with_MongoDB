@@ -27,7 +27,7 @@ with io.open("sample.txt","r",encoding="utf-8")as f1:
     sample=f1.read()
     f1.close()
 
-prompt1="""
+prompt="""
         you are a very intelligent AI assitasnt who is expert in identifying relevant questions from user and converting into nosql mongodb agggregation pipeline query.
         Note: You have to just return the query as to use in agggregation pipeline nothing else. Don't return any other thing
         Please use the below schema to write the mongodb queries , dont use any other queries.
@@ -149,7 +149,7 @@ input:{question}
 output:
 """
 query_with_prompt=PromptTemplate(
-    template=prompt1,
+    template=prompt,
     input_variables=["question","sample"]
 )
 
